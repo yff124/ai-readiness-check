@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 落地工具选型清单 · 小企业版</title>
+<meta name="description" content="按「你要解决什么问题」分类的 AI 工具选型参考：什么时候该上、什么时候先别上。">
+<style>
+  :root{
+    --bg:#0C1322; --panel:#141E33; --panel2:#0F1829;
+    --fg:#E8EDF5; --sub:#95A3B8; --dim:#64748B;
+    --accent:#FF6B35; --line:#1E2A42;
+    --ok:#3DDC97; --warn:#FFC24B; --no:#FF6B6B;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);
+       font:16px/1.7 -apple-system,"PingFang SC","Helvetica Neue",Arial,sans-serif;}
+  .wrap{max-width:900px;margin:0 auto;padding:48px 22px 80px}
+
+  header{border-bottom:1px solid var(--line);padding-bottom:28px;margin-bottom:40px}
+  .kicker{color:var(--accent);font-size:13px;font-weight:600;letter-spacing:.08em;margin:0 0 12px}
+  h1{font-size:30px;line-height:1.35;margin:0 0 14px;font-weight:700}
+  .lede{color:var(--sub);font-size:16px;margin:0}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  .howto{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin:28px 0 44px}
+  .howto h2{margin:0 0 10px;font-size:15px;color:var(--fg);font-weight:600}
+  .howto ol{margin:0;padding-left:20px;color:var(--sub);font-size:14.5px}
+  .howto li{margin:6px 0}
+
+  section{margin-bottom:46px}
+  .sec-h{display:flex;align-items:baseline;gap:12px;margin:0 0 6px}
+  .sec-h h2{font-size:20px;margin:0;font-weight:650}
+  .sec-h .n{color:var(--accent);font-size:13px;font-weight:700;font-variant-numeric:tabular-nums}
+  .sec-sub{color:var(--dim);font-size:14px;margin:0 0 18px}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:12px}
+  .c-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+  .c-name{font-size:16.5px;font-weight:650}
+  .badge{font-size:11.5px;font-weight:600;padding:2px 9px;border-radius:999px;white-space:nowrap}
+  .b-ok{background:rgba(61,220,151,.13);color:var(--ok);border:1px solid rgba(61,220,151,.3)}
+  .b-warn{background:rgba(255,194,75,.13);color:var(--warn);border:1px solid rgba(255,194,75,.3)}
+  .b-no{background:rgba(255,107,107,.13);color:var(--no);border:1px solid rgba(255,107,107,.3)}
+  .b-star{background:rgba(255,107,53,.13);color:var(--accent);border:1px solid rgba(255,107,53,.32)}
+  .loc{font-size:13px;color:var(--dim)}
+  .desc{color:var(--sub);font-size:14.5px;margin:0 0 10px}
+  .meta{display:flex;gap:20px;flex-wrap:wrap;font-size:13.5px;color:var(--dim);border-top:1px dashed var(--line);padding-top:10px;margin-top:10px}
+  .meta b{color:var(--sub);font-weight:500}
+  .verdict{margin-top:10px;font-size:14px;color:var(--fg);background:var(--panel2);border-left:3px solid var(--accent);padding:9px 13px;border-radius:0 8px 8px 0}
+
+  footer{border-top:1px solid var(--line);padding-top:22px;color:var(--dim);font-size:13.5px}
+  footer p{margin:8px 0}
+  .back{display:inline-block;margin-bottom:22px;font-size:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back" href="./">← 回到 AI 落地诊断器</a>
+
+  <header>
+    <p class="kicker">AI 落地 · 工具选型</p>
+    <h1>按「你要解决什么问题」来选，而不是按「哪个工具最火」来选</h1>
+    <p class="lede">这份清单只解决一件事：你已经知道要动哪个环节了，接下来该买什么。<br>
+      每一项都标了「什么时候该上、什么时候先别上」——后者往往比前者更省钱。</p>
+  </header>
+
+  <div class="howto">
+    <h2>用之前先看这三条</h2>
+    <ol>
+      <li><b>先有流程，再有工具。</b>同一个环节，如果你的做法每周都不一样，先把做法固定下来，再找工具；否则工具只会把混乱自动化。</li>
+      <li><b>先试 14 天，再谈年付。</b>几乎所有工具都有试用期。用你自己最烦的那件事去试，不用它们给的 demo。</li>
+      <li><b>算的是工时，不是订阅费。</b>一个月 200 块、每月省 8 小时，值不值取决于你的人力成本，不取决于它便不便宜。</li>
+    </ol>
+  </div>
+
+  <!-- ================= 1 ================= -->
+  <section>
+    <div class="sec-h"><span class="n">01</span><h2>把重复流程串起来（无代码自动化）</h2></div>
+    <p class="sec-sub">典型场景：表单进来 → 落表 → 通知人 → 生成文档。人只做判断，不做搬运。</p>
+
+    <div class="card">
+      <div class="c-top"><span class="c-name">n8n</span><span class="badge b-ok">推荐 · 可自托管</span><span class="loc">开源 · 海外</span></div>
+      <p class="desc">把「收到邮件 → 提取内容 → 写入表格 → 发通知」这类流程画出来跑。支持自托管，数据不出自己的服务器。</p>
+      <div class="meta"><span><b>参考价</b> 自托管免费 / 云版约 $24 起</span><span><b>门槛</b> 需要一台服务器或云主机</span></div>
+      <div class="verdict">什么时候该上：同一件事每周重复 5 次以上，且步骤固定。<br>什么时候先别上：只有 1-2 个人用、流程每周都在变 —— 此时 Excel 加一张检查表更快。</div>
+    </div>
+
+    <div class="card">
+      <div class="c-top"><span class="c-name">Make（原 Integromat）</span><span class="badge b-warn">谨慎 · 计费复杂</span><span class="loc">海外</span></div>
+      <p class="desc">可视化编排，连接器比 Zapier 多，价格更低，但「操作数」计费方式容易在预估时算错。</p>
+      <div class="meta"><span><b>参考价</b> 免费额度较小，付费约 $9 起</span><span><b>门槛</b> 无代码</span></div>
+      <div class="verdict">什么时候该上：流程步骤多、需要复杂分支。<br>什么时候先别上：你还在验证这个流程值不值得自动化 —— 先用免费额度试，别一上来就年付。</div>
+    </div>
+
+    <div class="card">
+      <div class="c-top"><span class="c-name">Zapier</span><span class="badge b-warn">谨慎 · 单价最高</span><span class="loc">海外</span></div>
+      <p class="desc">最成熟的自动化平台，连接器最全、文档最好，也最贵。适合「不差这点钱、只要稳定」的场景。</p>
+      <div class="meta"><span><b>参考价</b> 免费额度很小，付费约 $20 起</span><span><b>门槛</b> 无代码</span></div>
+      <div class="verdict">什么时候该上：流程关键、坏了要赔钱，需要最稳的那一个。<br>什么时候先别上：预算敏感 —— 同样的活 n8n / Make 通常便宜得多。</div>
+    </div>
+  </section>
+
+  <!-- ================= 2 ================= -->
+  <section>
+    <div class="sec-h"><span class="n">02</span><h2>把公司内部的知识变成能问答的库</h2></div>
+    <p class="sec-sub">典型场景：新人问「这个流程怎么走」、销售问「这个参数是多少」，答案其实早就写过，只是没人找得到。</p>
+
+    <div class="card">
+      <div class="c-top"><span class="c-name">Dify</span><span class="badge b-ok">推荐 · 中文友好</span><span class="loc">开源 · 可自托管</span></div>
+      <p class="desc">把文档上传成知识库，做出一个能回答内部问题的机器人。开源、可自托管，社区活跃。</p>
+      <div class="meta"><span><b>参考价</b> 自托管免费（模型调用另计）</span><span><b>门槛</b> 需要有人配一次，之后基本不用管</span></div>
+      <div class="verdict">什么时候该上：能一次性凑齐 20 份以上、半年内不会大改的文档。<br>什么时候先别上：文档散在几个人电脑里、没有统一版本 —— 先做整理，做库没用。</div>
+    </div>
+
+    <div class="card">
+      <div class="c-top"><span class="c-name">腾讯元器 / 扣子 Coze</span><span class="badge b-ok">推荐 · 国内可直连</span><span class="loc">国内</span></div>
+      <p class="desc">国内平台，无需自己搭服务器，与微信生态衔接方便。适合不想折腾服务器、又要给国内同事用的场景。</p>
+      <div class="meta"><span><b>参考价</b> 有免费额度</span><span><b>门槛</b> 无代码</span></div>
+      <div class="verdict">什么时候该上：使用者都在微信里、且公司不方便用海外服务。<br>什么时候先别上：需要深度定制与私有化部署 —— 此时回到开源自托管方案。</div>
+    </div>
+  </section>
+
+  <!-- ================= 3 ================= -->
+  <section>
+    <div class="sec-h"><span class="n">03</span><h2>内容生产：文案与视觉</h2></div>
+    <p class="sec-sub">典型场景：一篇文章要改成五个平台的版本；一张产品图要出十个尺寸。</p>
+
+    <div class="card">
+      <div class="c-top"><span class="c-name">Copy.ai / Writesonic</span><span class="badge b-warn">谨慎 · 中文非强项</span><span class="loc">海外</span></div>
+      <p class="desc">英文营销文案生成，模板丰富。中文输出的语感与本地化表达明显弱于国产模型。</p>
+      <div class="meta"><span><b>参考价</b> 约 $49/月起</span><span><b>门槛</b> 低</span></div>
+      <div class="verdict">什么时候该上：主要做英文市场的内容。<br>什么时候先别上：内容以中文为主 —— 直接用国产大模型更省钱，效果也更好。</div>
+    </div>
+
+    <div class="card">
+      <div class="c-top"><span class="c-name">Canva</span><span class="badge b-ok">推荐 · 上手快</span><span class="loc">海外 · 有中文版</span></div>
+      <p class="desc">模板化设计，非设计师也能出可用物料。<b>注意版权</b>：免费素材有使用范围限制，商用前逐个确认。</p>
+      <div class="meta"><span><b>参考价</b> 免费版可用，Pro 约 ¥70/月</span><span><b>门槛</b> 低</span></div>
+      <div class="verdict">什么时候该上：需要大量规格统一的日常物料。<br>什么时候先别上：需要品牌辨识度的主视觉 —— 模板感会稀释品牌。</div>
+    </div>
+
+    <div class="card">
+      <div class="c-top"><span class="c-name">多尺寸封面生成（我们自己的开源工具）</span><span class="badge b-star">免费 · 开源</span><span class="loc">本地运行 · 不上传</span></div>
+      <p class="desc">输入一次标题，一次出齐小红书 / 公众号 / 视频号 / 知乎 / B站 / 微博 / 抖音 / YouTube / X 的封面尺寸。中文自动折行、标点不落行首。</p>
+      <div class="meta"><span><b>参考价</b> 免费（MIT）</span><span><b>门槛</b> 浏览器打开即用</span></div>
+      <div class="verdict">什么时候该上：同一篇内容要发多个平台，改尺寸改到烦。<br>
+        <a href="https://yff124.github.io/coverkit-web/" target="_blank" rel="noopener">→ 打开在线版</a></div>
+    </div>
+  </section>
+
+  <!-- ================= 4 ================= -->
+  <section>
+    <div class="sec-h"><span class="n">04</span><h2>视频与音频</h2></div>
+    <p class="sec-sub">典型场景：产品讲解视频要出多语言版本；会议录音要变成纪要。</p>
+
+    <div class="card">
+      <div class="c-top"><span class="c-name">Synthesia / HeyGen</span><span class="badge b-warn">谨慎 · 按分钟计费</span><span class="loc">海外</span></div>
+      <p class="desc">数字人播报，一条脚本出多语言版本。省的是「重录」的时间，不是「写脚本」的时间。</p>
+      <div class="meta"><span><b>参考价</b> 约 $29/月起，分钟数另计</span><span><b>门槛</b> 低，但脚本质量决定成品质量</span></div>
+      <div class="verdict">什么时候该上：同一份内容要出 3 个以上语言版本。<br>什么时候先别上：只出中文 —— 真人出镜的可信度仍然更高。</div>
+    </div>
+
+    <div class="card">
+      <div class="c-top"><span class="c-name">Descript</span><span class="badge b-ok">推荐 · 改稿像改文档</span><span class="loc">海外</span></div>
+      <p class="desc">把录音转成文字，删字就等于删音频，剪辑门槛大幅下降。中文识别质量需自行验证。</p>
+      <div class="meta"><span><b>参考价</b> 约 $19/月起</span><span><b>门槛</b> 低</span></div>
+      <div class="verdict">什么时候该上：经常做口播、访谈、课程录音。<br>什么时候先别上：主要产出是中文长视频 —— 先确认中文识别准确率再付费。</div>
+    </div>
+  </section>
+
+  <!-- ================= 5 ================= -->
+  <section>
+    <div class="sec-h"><span class="n">05</span><h2>数据与报表</h2></div>
+    <p class="sec-sub">典型场景：每周手工拼一份运营报表，数据来自三个系统，格式还得统一。</p>
+
+    <div class="card">
+      <div class="c-top"><span class="c-name">先用 Excel / 飞书多维表格</span><span class="badge b-ok">推荐 · 零成本</span><span class="loc">国内</span></div>
+      <p class="desc">别急着上 BI 工具。90% 的「报表痛点」本质是「数据口径没统一」，而不是「工具不够强」。</p>
+      <div class="meta"><span><b>参考价</b> 0</span><span><b>门槛</b> 你本来就会</span></div>
+      <div class="verdict">什么时候该上：现在。<br>什么时候换 BI：当同一份报表需要 3 个人以上同时看、且每天都要更新时，再考虑 BI。先统一口径，再买工具。</div>
+    </div>
+  </section>
+
+  <footer>
+    <p><b>说明（如实）：</b>本页是按公开信息与真实定价整理的<b>选型参考</b>，不是逐项实测报告。定价与功能变动频繁，**下单前请以官网为准**。</p>
+    <p>标 <span class="badge b-star" style="font-size:11px">★</span> 的项目是指向自有开源工具（不产生任何佣金）。其余外链为官网地址。</p>
+    <p>本页不含用户数据采集、不含埋点、不设置 Cookie。</p>
+  </footer>
+
+</div>
+</body>
+</html>
